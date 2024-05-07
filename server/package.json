@@ -1,0 +1,8 @@
+{
+  "type": "module",
+  "dependencies": {
+    "algoliasearch": "^4.23.3",
+    "dotenv": "^16.4.5",
+    "node-fetch": "^3.3.2"
+  }
+}
