@@ -1,6 +1,7 @@
 import algoliasearch from "algoliasearch/lite";
 import { InstantSearch } from "react-instantsearch";
 import { Header } from "./components/Header";
+import { HitsInGrid } from "./components/HitsList";
 
 const searchClient = algoliasearch(
   "7WCTUL69D6",
@@ -12,6 +13,7 @@ const App = () => {
     <>
       <InstantSearch searchClient={searchClient} indexName="julien_pokemons">
         <Header />
+        <HitsInGrid />
       </InstantSearch>
     </>
   );
