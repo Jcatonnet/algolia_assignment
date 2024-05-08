@@ -26,7 +26,7 @@ export const PokemonCard = ({ imageUrl, name, type, base }: PokemonType) => {
           <div className="grid grid-cols-2 gap-x-0 gap-y-4 w-full">
             <p className="font-bold text-primary">HP: {base.HP}</p>
             <p className="font-bold text-primary">Attack: {base.Attack}</p>
-            <p className="font-bold text-primary">Defense: {base.Defense}</p>
+            <p className="font-bold text-primary">Def: {base.Defense}</p>
             <p className="font-bold text-primary">Speed: {base.Speed}</p>
           </div>
         </div>
