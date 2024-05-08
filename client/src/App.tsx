@@ -5,6 +5,7 @@ import { HitsInGrid } from "./components/HitsList";
 import { RangeSlider } from "./widgets/RangeSlider";
 import CustomRefinementList from "./widgets/CustomRefinementList";
 import CustomMenu from "./widgets/CustomMenu";
+import { LanguageProvider } from "./components/LanguageContext";
 
 const searchClient = algoliasearch(
   "7WCTUL69D6",
@@ -13,10 +14,11 @@ const searchClient = algoliasearch(
 
 const App = () => {
   return (
-    <>
+    <LanguageProvider>
       <InstantSearch searchClient={searchClient} indexName="julien_pokemons">
         <Header />
-        <Configure hitsPerPage={40} />
+
+        <Configure hitsPerPage={20} />
 
         <div className="flex justify-center">
           <div className="w-1/5">
@@ -37,7 +39,7 @@ const App = () => {
           </div>
         </div>
       </InstantSearch>
-    </>
+    </LanguageProvider>
   );
 };
 

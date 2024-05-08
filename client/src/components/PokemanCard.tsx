@@ -3,9 +3,16 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { PokemonType } from "../types";
+import { useLanguage } from "./LanguageContext";
+import { getPokemonNameByLanguage } from "../utils";
 
 export const PokemonCard = ({ imageUrl, name, type, base }: PokemonType) => {
   const typeString = type.join(" / ");
+  const { language } = useLanguage();
+  const pokemonName = getPokemonNameByLanguage(
+    { name, type, base, imageUrl },
+    language
+  );
 
   return (
     <Card className="max-w-xs m-2 bg-primary border-2 border-primary rounded-xl shadow-md">
@@ -17,7 +24,7 @@ export const PokemonCard = ({ imageUrl, name, type, base }: PokemonType) => {
       />
       <CardContent>
         <Typography gutterBottom variant="h6" component="div">
-          {name.english}
+          {pokemonName}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           Types: {typeString}
