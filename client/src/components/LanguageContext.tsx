@@ -1,4 +1,10 @@
-import { createContext, useContext, useState, ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  ReactNode,
+} from "react";
 
 type LanguageContextType = {
   language: string;
@@ -18,7 +24,13 @@ export const useLanguage = (): LanguageContextType => {
 };
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [language, setLanguage] = useState("English");
+  const [language, setLanguage] = useState<string>(() => {
+    return localStorage.getItem("appLanguage") || "English";
+  });
+
+  useEffect(() => {
+    localStorage.setItem("appLanguage", language);
+  }, [language]);
 
   const switchLanguage = (lang: string) => setLanguage(lang);
 

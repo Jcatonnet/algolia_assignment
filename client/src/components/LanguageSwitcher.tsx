@@ -21,7 +21,12 @@ const LanguageSwitcher = () => {
         className="bg-white text-gray-800"
         autoWidth={false}
         MenuProps={{
-          classes: { paper: "bg-white" },
+          sx: {
+            ".MuiPaper-root": {
+              borderRadius: "8px",
+              marginTop: "8px",
+            },
+          },
         }}
       >
         <MenuItem value="English">English</MenuItem>
