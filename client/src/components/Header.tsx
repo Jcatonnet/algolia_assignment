@@ -1,6 +1,7 @@
 import { SearchBox } from "react-instantsearch";
 import Pokeball from "../assets/pokeball.png";
 import LanguageSwitcher from "./LanguageSwitcher";
+import CustomSearchBox from "../widgets/CustomSearchBox";
 
 export const Header = () => {
   return (
@@ -9,17 +10,7 @@ export const Header = () => {
         <img className="w-32 h-32" alt="Pokeball" src={Pokeball} />
       </div>
       <div className="flex-grow-0 relative flex-shrink-0 w-2/5">
-        <SearchBox
-          placeholder="Search in your pokedex"
-          classNames={{
-            root: "ais-SearchBox",
-            form: "ais-SearchBox-form relative flex items-center bg-white rounded-full border border-white-100 shadow px-4 py-4 focus-within:border-secondary",
-            input:
-              "ais-SearchBox-input flex-1 outline-none text-sm text-gray-600 pl-10 placeholder-primary",
-            submit: "ais-SearchBox-submit absolute inset-y-0 left-4 ",
-            reset: "hidden",
-          }}
-        />
+        <CustomSearchBox />
       </div>
       <div className="flex-grow-0 relative flex-shrink-0 ml-4">
         <LanguageSwitcher />

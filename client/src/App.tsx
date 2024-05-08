@@ -6,6 +6,7 @@ import { RangeSlider } from "./widgets/RangeSlider";
 import CustomRefinementList from "./widgets/CustomRefinementList";
 import CustomMenu from "./widgets/CustomMenu";
 import { LanguageProvider } from "./components/LanguageContext";
+import { NoResults, NoResultsBoundary } from "./components/NoResult";
 
 const searchClient = algoliasearch(
   "7WCTUL69D6",
@@ -21,12 +22,12 @@ const App = () => {
         <Configure hitsPerPage={20} />
 
         <div className="flex justify-center">
-          <div className="w-1/5">
+          <div className="w-1/5 flex-shrink-0 ml-14">
             <CustomRefinementList attribute="type" />
             <CustomMenu attribute="game_versions" />
             <RangeSlider attribute="base.HP" />
           </div>
-          <div className="flex flex-col items-center ml-10">
+          <div className="flex flex-col items-center ml-10 flex-grow ">
             <Pagination
               padding={2}
               classNames={{
@@ -35,7 +36,9 @@ const App = () => {
                 selectedItem: "bg-primary text-white-100",
               }}
             />
-            <HitsInGrid />
+            <NoResultsBoundary fallback={<NoResults />}>
+              <HitsInGrid />
+            </NoResultsBoundary>
           </div>
         </div>
       </InstantSearch>
